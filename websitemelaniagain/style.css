@@ -1,0 +1,59 @@
+body {
+    margin: 0;
+    background: #0a0a0a;
+    font-family: 'Courier New', monospace;
+    color: #00ff88;
+    overflow: hidden;
+}
+
+.boot-screen {
+    position: fixed;
+    background: black;
+    color: #00ff88;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    animation: fadeOut 2s ease 2s forwards;
+    z-index: 100;
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+.desktop {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+.window {
+    position: absolute;
+    width: 300px;
+    background: #121212;
+    border: 1px solid #00ff88;
+    box-shadow: 0 0 10px #00ff88;
+    top: 100px;
+    left: 100px;
+    resize: both;
+    overflow: auto;
+    cursor: grab;
+}
+
+.title-bar {
+    background: #00ff88;
+    color: black;
+    padding: 5px;
+    font-weight: bold;
+    cursor: move;
+}
+
+.content {
+    padding: 10px;
+}

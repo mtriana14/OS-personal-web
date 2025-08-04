@@ -1,0 +1,22 @@
+const windows = document.querySelectorAll('.window');
+
+windows.forEach(win => {
+  const titleBar = win.querySelector('.title-bar');
+  let isDragging = false, offsetX = 0, offsetY = 0;
+
+  titleBar.addEventListener('mousedown', e => {
+    isDragging = true;
+    offsetX = e.clientX - win.offsetLeft;
+    offsetY = e.clientY - win.offsetTop;
+    win.style.zIndex = Date.now(); // bring to front
+  });
+
+  document.addEventListener('mouseup', () => isDragging = false);
+
+  document.addEventListener('mousemove', e => {
+    if (isDragging) {
+      win.style.left = `${e.clientX - offsetX}px`;
+      win.style.top = `${e.clientY - offsetY}px`;
+    }
+  });
+});
